@@ -1,0 +1,39 @@
+{
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": [
+            "last 5 Chrome versions",
+            "last 5 Firefox versions",
+            "IE 11"
+          ]
+        }
+      }
+    ],
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    [
+      "module-resolver",
+      {
+        "alias": {
+          "@common": "./src/_common",
+          "@common/utils/redux/createAction":
+            "./src/_common/utils/redux/createAction"
+        }
+      }
+    ]
+  ],
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs", "dynamic-import-node"]
+    },
+    "production": {
+      "presets": ["minify"]
+    }
+  }
+}
